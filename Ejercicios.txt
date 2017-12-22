@@ -21,6 +21,26 @@
  6.-  Cámbiate al usuario root e intenta hacer el ejercicio anterior. 
 
  7.-  Asigna permisos rwx para todos al fichero creado y sal del usuario root.
+ 
+ 7.1- Crea una estructura de directorios del tipo /home/forma2/db2/tablas/indices
+     Y creo los ficheros:  
+      /home/forma2/db2/file1.txt 
+      /home/forma2/db2/tablas/file2.txt
+      /home/forma2/db2/tablas/indices/file3.txt
+  
+      Asigna permisos rwx a todo el mundo sobre file1.txt
+     
+      Asigna permisos r-- a others en toda la estructura que cuelga de db2
+
+      Quita los permisos: w al grupo y quita wx a others en file2.txt
+
+      Cámbiate al usuario root. Vete al directorio home de forma2.
+      Quita el permiso w a todos, hazlo sobre el arbol de db2 
+
+      Vuelve al usuario forma2 e intenta crear el fichero db2/tablas/filex.txt
+       
+          
+  
 
  8.-  Vete al home del usuario forma2 y comprueba qué directorios existen.
 
@@ -55,6 +75,7 @@
  15.- Como el directorio db2 que has creado ya no te vale para nada, puedes borrarlo con 
       todo su contenido. Hazlo usando un solo comando.
 
+ 
 XXXXXXX   Algunos comandos avanzados XXXXXXXXXXXXXXXXX
 
  16.- Sube desde tu sistema de archivos de windows al servidor linux, los archivos bbdd.txt y nodos.txt

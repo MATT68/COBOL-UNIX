@@ -1,0 +1,164 @@
+
+
+
+ Todos estos ejercicios los haremos desde un Terminal. 
+
+ 1.-  Comprueba qué directorios existen en el directorio raiz ( i.e. en:   /  )  
+
+ 2.-  Comprueba qué ficheros existen en la home de tu usuario.
+
+ 3.-  Editar/visualizar el contenido de los ficheros .profile.  
+ 
+ 4.-  Vete al directorio /etc y lista el contenido de los ficheros: passwd y groups
+      ¿Qué crees que contienen?
+      Cuál es tu usuario actual?
+      Indica cuál es el id  de tu usuario?.
+
+ 5.-  Intenta crear un fichero llamado prueba.txt en ese directorio ¿qué ocurre?
+      (Por ejemplo con el comando: gedit)
+	  Comprueba en qué directorio estás.
+
+ 6.-  Cámbiate al usuario root e intenta hacer el ejercicio anterior. 
+
+ 7.-  Asigna permisos rwx para todos al fichero creado y sal del usuario root.
+
+ 8.-  Vete al home del usuario forma2 y comprueba qué directorios existen.
+
+ 9.-  ¿Qué permisos tienen los directorios y ficheros de la $HOME del usuario forma2?.
+
+ 10.- Crear un directorio /db2 en dicho $HOME.
+      Comprueba los permisos del directorio creado.
+      En el directorio recién creado crea tres ficheros: file1.txt, file2.txt y file3.txt
+	  Hazlo con el mando touch -si no lo conoces, investígalo-.
+	  
+ 11.- Dentro del directorio db2, copia el fichero /etc/prueba.txt que creaste antes.
+      Una vez copiado, bórrado del directorio /etc, no debemos dejar "basura" en los 
+	  directorios del sistema.
+ 
+ 12.- Ahora copia en este directorio el fichero .profile que tienes en tu home.
+      A continuación, crea en este directorio dos subdirectorios con el formato sub1/sub2
+	  Hazlo con un solo comando.
+
+ 12.1- Crea un directorio tablas dentro del directorio db2
+      En ese directorio crea un par de ficheros: fich1.txt fich2.txt
+      Deberías tener algo así: /home/forma2/db2/tablas/fich1.txt ....
+
+ 12.2- Copia todo el directorio db2 y su contenido a tu carpeta Documentos.
+
+ 12.3- Ahora mueve todo el directorio db2 al /home/forma2/Escritorio
+	  
+ 13.- Haz un listado de los ficheros que contiene tu directorio y de sus propiedas.
+      Visualiza también el .profile que acabas de copiar.
+	  
+ 14.- Mueve el fichero prueba.txt  a tu Escritorio.
+
+ 15.- Como el directorio db2 que has creado ya no te vale para nada, puedes borrarlo con 
+      todo su contenido. Hazlo usando un solo comando.
+
+XXXXXXX   Algunos comandos avanzados XXXXXXXXXXXXXXXXX
+
+ 16.- Sube desde tu sistema de archivos de windows al servidor linux, los archivos bbdd.txt y nodos.txt
+      (Si no has instalado todavía un cliente ftp, es buen momento. Coméntaselo al instructor).
+  
+ 17.- Crea un archivo tar con compresion gzip que contenga todo lo que tienes en tu home.
+ 
+ 18.- Comprueba los procesos que tienes funcionando en tu servidor 
+      (Si el instructor no ha explicado el comando systemctl es un buen momento,
+	   coméntaselo).
+
+ 19.- Busca los procesos (servicios) de tu máquina que contengan el nombre mysql.
+
+xxxxxxxxxxxxxxxx  Ejecutando ls con wildchars xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+ 20.- Lista los archivos del directorio /etc que:
+      - Terminan con conf
+	  - Empiezan con una a ó una D.
+	  - Contienen una o en la quinta posición.
+	  - Contiene la palabra tab (en cualquier formato de mayús/minúsculas)
+      - Terminan con un número.
+	  - No terminan con un número.
+ 
+ 21.- Cuenta el número de líneas en el directorio /etc (no lo hagas a dedo)
+
+ 22.- Envía la salida del directorio /etc a un fichero llamado etc.txt
+      Hazlo en un home, que ahí si tienes permiso para escribir... 
+	  
+ 23.- Lee las primeras filas del fichero etc.txt
+      Lee ahora las 15 primeras filas.
+	  
+ 24.- Lee las últimas filas del mismo fichero. Y las 15 últimas?
+
+ 25.- Usa el comando nl para numerar las filas del etc.txt
+ 
+ 26.- Llévate el fichero etc.txt a tu Escritorio (moviéndolo). 
+
+xxxxxxxxxxxxxxxx  El editor vi -con paciencia- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  
+ 27.- En tu home, crea/edita un fichero llamado miprimervi.txt
+      En el introduce diez líneas que empiecen por a, b, c....:
+	  a Alicia
+	  b Barakaldo
+	  ....	
+      
+ 28.- Vuelve al modo comando y salva lo que has escrito.
+
+ 29.- Entra de nuevo al fichero y copia las lineas 4 y 5. Colócalas al final.
+      Ahora copia las doce líneas completas. Hazlo tres veces, hasta que tengas 
+      48 filas.
+	  
+ 30.- Muévete por el fichero con las teclas H J K L .
+      Con los comandos vi adecuados: 
+		- sube una página
+		- baja una página
+		- mueve el cursor a la última posición de la líneas 		
+		- ahora a la primeras	
+		- Vete a la última línea del fichero
+		- ... a la primera
+		- Vete a la línea 25
+		- Cambia el contenido de todas las líneas que empizan por a.
+		  Sustituye Alicia por alumno1 en la primera línea, alumno2 en la siguiente, etc.
+		Guarda tus cambios.
+		
+ 31.-  Ahora edita de nuevo el fichero, modifica la primera línea que empieza por
+       b, para que sea: b Bolardo.
+	   Esta vez debe salir sin guardar los cambios.
+	   
+ 
+xxxxxxxxxxxxxxxx  Un poco de comandos para la shell xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ 
+ 37.- Crea un script que lance un listado del contenido del directorio /etc      
+      Ejecútalo. Si no puedes, habrá que darle permisos.
+	  
+ 38.- Ahora crea un script que:
+      - Cree un directorio llamado prueba en tu home. 
+	  - Copie los ficheros del /etc a tu nuevo directorio
+      - Liste los ficheros de tu nuevo directorio.
+
+ 39.- Sobre el script anterior. Modifícalo para que acepte commo parámetro el nombre 
+      del directorio que vas a copiar.  
+ 
+ 40.- Vamos a crear un bucle en la shell. El objetivo es mostrar el nombre de todos 
+los servicios que tenemos en el fichero /etc/services.
+
+ Debemos usar para ello un comando ls, un pipe con grep y otro con cut.
+ (dile al instructor que explique el comando cut)
+ 
+ El formato del bucle es el siguiente:
+
+ for i in `comando que se ejecuta`
+     do
+	echo " Muestro la variable: $i "
+     done
+
+ 41.- Crear un script sencillo para comprobar si en un directorio existe el fichero
+     fichero1.txt. Si no existe, debe crearlo.
+
+ 42.- Crear un script que acepte dos parámetros, uno es el directorio y otro el      nombre del fichero.
+     Comprobar si el directorio existe. Y si no existe dar un error.
+     Si existe, crear el fichero en el directorio.
+
+
+
+
+      	 
+

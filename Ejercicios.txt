@@ -39,9 +39,13 @@
 
       Vuelve al usuario forma2 e intenta crear el fichero db2/tablas/filex.txt
        
-          
-  
+      Como root. Cambia el propietario/grupo del fichero file3.txt para que aparezcan 		user/user. Además asigna permisos rwx a user y r-- al resto. 
 
+      Conéctate como user y comprueba que puedes editar el file3.txt (abre con gedit y 	escribe una fila). Salva el cambio y sal del fichero. 	
+ 
+      Conéctate como forma2 e intenta hacer lo mismo del ejercicio anterior.
+ 
+      
  8.-  Vete al home del usuario forma2 y comprueba qué directorios existen.
 
  9.-  ¿Qué permisos tienen los directorios y ficheros de la $HOME del usuario forma2?.

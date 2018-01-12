@@ -17,3 +17,4 @@
                10  CP110O-SALARY               PIC S9(7)V9(2) COMP-3.
            05  CP110-ERROR.
                10  CP110E-MESSAGE              PIC X(40).
+               10  CP110E-SQLCODE              PIC S9(9) COMP-5.

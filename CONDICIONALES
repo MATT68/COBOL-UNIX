@@ -1,0 +1,14 @@
+  1   SI EL COLOR ES AZUL Y ALTURA MAYOR DE 150 AAAAAA    
+  2   SI MIDE MENOS DE 100 Y ES VERDE O ROJO    BBBBBB    
+  3   SI NO ES ROJO Y MIDE MAS DE 150 O ES AZUL           
+            Y MIDE 120                          CCCCCC    
+  1     IF  WS-COLOR = 'BLUE' AND WS-ALTURA > 150           
+          AAAAAA                                          
+                                                          
+  2    IF  WS-ALTURA < 100 AND                             
+          (WS-COLOR = 'GREEN' OR WS-COLOR = 'RED')        
+          BBBBBBB                                         
+  3    IF  (WS-COLOR NOT= 'RED' AND WS-ALTURA > 150)       
+          OR                                              
+          (WS-COLOR = 'BLUE' AND WS-ALTURA = 120)         
+          CCCCCCCCC                                       

@@ -13,15 +13,18 @@
        ENVIRONMENT DIVISION.                                            00170020
        CONFIGURATION SECTION.                                           00190020
                                                                         00220020
+	   SPECIAL-NAMES.
+		   DECIMAL-POINT IS COMMA.
+      *
        INPUT-OUTPUT SECTION.                                            00230020
        FILE-CONTROL.                                                    00240020
            SELECT EMPLE
               ASSIGN EMPLEADO
-              FILE STATUS IS WS-FILE-STATUS.
+              FILE STATUS IS SW-FILE-STATUS.
       *
            SELECT EMPLE2
               ASSIGN EMPLEA2
-              FILE STATUS IS WS-FILE-STATUS.
+              FILE STATUS IS SW-FILE-STATUS.
       *
       ***************************************************************** 00250020
       * DATA DIVISION                                                 * 00260020
@@ -29,14 +32,9 @@
        DATA DIVISION.                                                   00270020
                                                                         00280020
        FILE SECTION.                                                    00290020
-       FD  EMPLE
-           RECORD CONTAINS 59 CHARACTERS
-           DATA RECORD IS REG-EMPLE.
+       FD  EMPLE.
        01  REG-EMPLE                              PIC X(59).
-       FD  EMPLE2
-           RECORD CONTAINS 47 CHARACTERS
-           DATA RECORD IS REG-EMPLE.
-       01  REG-EMPLE                              PIC X(47).
+      *
       ***************************************************************** 00250020
       * WORKING STORAGE SECTION                                       * 00260020
       ***************************************************************** 00250020
@@ -47,18 +45,18 @@
                10  WS-NOMBRE                     PIC X(20).
                10  WS-APELLIDO1                  PIC X(20).
                10  WS-APELLIDO2                  PIC X(20).
-           05  WS-FILE-STATUS                    PIC 99.
            05  WS-GASTO-MES                      PIC S9(6)V99.
-           05  WS-GASTO-MES-C                    PIC S9(6)V9(2) COMP-3.
+           05  WS-GASTO-MES-C                    PIC S9(6)V9(2) COMP-4.
            05  WS-PARRAFO-ERR                    PIC X(20).
            05  WS-FICHERO-ERR                    PIC X(20).
            05  WS-OPERAC-ERR                     PIC X(20).
            05  WS-APELLIDO-VALIDAR.
                10  WS-APELLIDO-PRIMERA           PIC X.
                10  WS-APELLIDO-RESTO             PIC X(14).
-       01  WC-CONTADORES.
-           05  WC-LINEAS                         PIC 9(6).
-           05  WC-LINEAS-EDIT                    PIC ZZZZ9.
+           05  WC-CONTADORES.
+               10  WC-LINEAS-LEIDAS                  PIC 9(9).
+               10  WC-LINEAS-ESCRITAS                PIC 9(9).
+               10  WC-LINEAS-EDIT                    PIC ZZZ,ZZZ,ZZ9.
        01  LT-LITERALES.                                                00441122
            05 LT-PROGRAMA                  PIC X(8) VALUE 'PROG03CB'.
            05 LT-FI-EMPLEADO               PIC X(8) VALUE 'EMPLEADO'.
@@ -93,9 +91,13 @@
       **              SWITCHES                                        **00440522
       ******************************************************************00440622
        01  SW-SWITCHES.                                                 00441122
-           05 SW-FIN-FICHERO                    PIC X.
+           05 SW-FIN-FICHERO                    PIC X    VALUE 'N'.
               88 FIN-FICHERO                       VALUE 'Y'.
               88 NO-FIN-FICHERO                    VALUE 'N'.
+      *                                                                 00441922
+     	   05 SW-FILE-STATUS                    PIC 99.
+              88 FS-OK                             VALUE 00.
+              88 FS-FIN                            VALUE 10.
       *                                                                 00441922
       ******************************************************************00441922
       **              VARIABLES AUXILIARES                            **00442022
@@ -122,15 +124,16 @@
        1000-INICIO.                                                     00739020
       *
            DISPLAY ' **** INICIO ***** ' .
+           MOVE '1000-'          TO WS-PARRAFO-ERR
+
            INITIALIZE WS-VARIABLES
                       WC-CONTADORES.
       *
+	       SET FS-OK TO TRUE.
+		   
            OPEN INPUT  EMPLE.
       *
-           IF  WS-FILE-STATUS = 00
-               CONTINUE
-           ELSE
-               MOVE '1000-'          TO WS-PARRAFO-ERR
+           IF  NOT FS-OK
                MOVE LT-FI-EMPLEADO   TO WS-FICHERO-ERR
                MOVE LT-OPEN          TO WS-OPERAC-ERR
                PERFORM 9100-ERROR-FICHERO
@@ -139,15 +142,14 @@
       *
            OPEN OUTPUT EMPLE2
       *
-           IF  WS-FILE-STATUS = 00
-               CONTINUE
-           ELSE
-               MOVE '1000-'          TO WS-PARRAFO-ERR
+           IF  NOT FS-OK
                MOVE LT-FI-EMPLEA2    TO WS-FICHERO-ERR
                MOVE LT-OPEN          TO WS-OPERAC-ERR
                PERFORM 9100-ERROR-FICHERO
                   THRU 9100-ERROR-FICHERO-EXIT
            END-IF.
+      *
+	       SET NO-FIN-FICHERO TO TRUE
       *
            PERFORM 9200-LEER-EMPLE
               THRU 9200-LEER-EMPLE-EXIT
@@ -164,7 +166,7 @@
            MOVE '3000-'          TO WS-PARRAFO-ERR
            ADD  1  TO WC-LINEAS-LEIDAS
       *
-           IF  WC-LINEAS <= 30 AND
+           IF  WC-LINEAS-LEIDAS <= 30 AND
                ( WS-APELLIDO-EMP(1:1) = 'A' OR
                  WS-APELLIDO-EMP(1:1) = 'E' OR
                  WS-APELLIDO-EMP(1:1) = 'I' OR
@@ -192,17 +194,17 @@
            MOVE WS-DEPT-EMP      TO WS-DEPT-EMP
            MOVE WS-SALARIO-EMP   TO WS-SALARIO-EMP
       * ESCRIBIMOS
-           WRITE EMPLE2
+           WRITE REG-EMPLE2
             FROM WS-EMPLEADO-REG2
       *
-           IF  WS-FILE-STATUS = 00
+           IF  FS-OK
                ADD  1  TO WC-LINEAS-ESCRITAS
            ELSE
                MOVE LT-FI-EMPLEADO2  TO WS-FICHERO-ERR
                MOVE LT-WRITE         TO WS-OPERAC-ERR
                PERFORM 9100-ERROR-FICHERO
                   THRU 9100-ERROR-FICHERO-EXIT
-           END-IF
+           END-IF.
        3100-ESCRIBIR-EXIT.                                              00910020
            EXIT.
       *****************************************************             01770520
@@ -210,12 +212,12 @@
       *****************************************************             01770720
        8000-FIN.                                                        01770820
       *
-           IF  WS-PARRAFO-ERR NOT = SPACES
+           IF  WS-FICHERO-ERR = SPACES
                CLOSE EMPLE
            END-IF
       *
            DISPLAY ' **** FINALLLLLL ***** ' .
-           MOVE   WC-LINEAS    TO WC-LINEAS-EDIT
+           MOVE   WC-LINEAS-LEIDAS    TO WC-LINEAS-EDIT
            DISPLAY ' ******************************************* ' .
            DISPLAY ' *   E S T A D I S T I C A S               * ' .
            DISPLAY ' *   FILAS TRATADAS POR FICHERO:           * ' .
@@ -235,9 +237,9 @@
            DISPLAY ' * ERROR PARRAFO  : ' WS-PARRAFO-ERR  '*'
            DISPLAY ' * ERROR FICHERO  : ' WS-FICHERO-ERR  '*'
            DISPLAY ' * TIPO OPERACION : ' WS-OPERAC-ERR    '*'
-           DISPLAY ' * FILE STATUS    : ' WS-FILE-STATUS '*'
+           DISPLAY ' * FILE STATUS    : ' SW-FILE-STATUS '*'
            DISPLAY ' **********************************'
-      *
+      *   
            PERFORM 8000-FIN                                             00733020
               THRU 8000-FIN-EXIT                                        00734020
            .
@@ -253,10 +255,10 @@
               SET FIN-FICHERO TO TRUE
            END-READ
       *
-           EVALUATE  WS-FILE-STATUS
-              WHEN 00
+           EVALUATE  SW-FILE-STATUS
+              WHEN FS-OK
                    CONTINUE
-              WHEN +10
+              WHEN FS-FIN
                    IF  WC-LINEAS > 0
                        CONTINUE
                    ELSE
@@ -276,4 +278,3 @@
        9200-LEER-EMPLE-EXIT.
            EXIT.
       *
-

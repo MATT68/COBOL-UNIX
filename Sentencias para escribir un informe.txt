@@ -1,0 +1,24 @@
+
+PARA LOS INFORMES:
+------------------
+
+       SELECT INFORME
+        ASSIGN LISTAEMP
+        FILE STATUS IS SW-FILE-STATUS.
+
+       FD  INFORME
+           RECORD CONTAINS 132 CHARACTERS
+           DATA RECORD IS REG-INFORME.
+       01  REG-INFORME                           PIC X(132).
+
+     05 LINEA-DETALLE.
+        	10 FILLER 	PIC X(10) VALUE ‘NOMBRE  : ’.
+        	10 WS-NOMBRE 	PIC X(15).  
+        	10 FILLER 	PIC X(12) VALUE ‘APELLIDO  : ’.
+	        10 WS-APELLIDO	PIC X(20).
+        	10 FILLER 	PIC X(10) VALUE ‘CARGO  : ’.
+	        10 WS-CARGO	PIC X(12).
+
+     WRITE REG-SALIDA
+       FROM LINEA-DETALLE
+       AFTER ADVANCING 1 LINE.

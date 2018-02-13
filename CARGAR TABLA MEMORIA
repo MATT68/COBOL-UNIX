@@ -1,0 +1,29 @@
+       05  WS-OFICINA-REG.
+           10 WS-COD-POPU      PIC X(4).
+           10 WS-COD-SAN       PIC X(4).
+       ....
+       05  WT-TAB-OFIC          OCCURS 250 TIMES
+                                INDEXED BY J.
+           10 WT-POPU          PIC X(4).
+           10 WT-SAN           PIC X(4).
+       ....      
+       OPEN INPUT OFICINAS                                          
+       SET  NO-FIN-OFICINAS TO TRUE                                 
+       SET J  TO 1                                                  
+       READ       OFICINAS INTO WS-OFICINA-REG                      
+       PERFORM 1100-CARGAR-TABLA                                    
+          THRU 1100-CARGAR-TABLA-EXIT                               
+         UNTIL FIN-OFICINAS                                         
+  *                                                                 
+  -  -  -  -  -  -  -  -  -  -  -  -  -  - 28 Line(s) not Displayed 
+   1000-INICIO-EXIT.                                                
+       EXIT.                                                        
+    1100-CARGAR-TABLA.                                              
+                                                                    
+       MOVE WS-COD-POPU    TO WT-POPU(J)                            
+       MOVE WS-COD-SAN     TO WT-SAN(J)                             
+       SET J  UP BY 1                                               
+       READ       OFICINAS                                          
+          INTO WS-OFICINA-REG ......                                
+       ....                                                         
+    1100-CARGAR-TABLA-EXIT.                                         

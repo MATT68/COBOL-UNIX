@@ -1,0 +1,18 @@
+//*                                                            
+//SORT10   EXEC PGM=SORT                                       
+//SORTIN   DD  DSN=DFBD215.FICHERO.EMPLEADO,DISP=SHR           
+//SORTOUT  DD  DSN=DFBD215.FICHERO.EMPLEADO.SORT1,             
+//             DISP=(,CATLG,DELETE),DCB=(LRECL=29,RECFM=FB),   
+//             SPACE=(TRK,(1,5)),UNIT=SYSDA                    
+//SYSPRINT DD  SYSOUT=*                                        
+//SYSOUT   DD  SYSOUT=*                                        
+//SYSIN    DD  *                                               
+* ORDENAMOS POR DEPARTAMENTO DESCENDING                        
+   SORT FIELDS=(2,3,D),                                        
+                FORMAT=CH                                      
+*  ELEGIMOS SOLO LOS DEPARTAMENTOS QUE NO EMPIEZAN POR 'C'     
+      OMIT  COND=(35,1,EQ,C'C'),FORMAT=CH                      
+*  SUMAMOS SALARIO Y COMISION                                  
+   SUM FIELDS=(6,11,18,11),FORMAT=ZD                           
+   INREC FIELDS=(C'|',35,3,C'-',38,11,C'-',49,11,C'|')         
+//                                                             

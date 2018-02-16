@@ -1,0 +1,18 @@
+//*****  SOLO A PARTIR DE LA VERSION 1.12                    ****  
+//***************************************************************  
+//JOINKEYS EXEC  PGM=SORT                                          
+//ENTRADA1 DD  DSN=DFBD200.FICHERO.EMPLEADO,                       
+//             DISP=SHR                                            
+//ENTRADA2 DD  DSN=DFBD200.FICHERO.DEPARTS,                        
+//             DISP=SHR                                            
+//SORTOUT  DD  DSN=DFBD215.FICHERO.DEPTEMPL.JOIN,                  
+//             DCB=(LRECL=60,RECFM=FB),                            
+//             SPACE=(TRK,(1,1)),                                  
+//             DISP=(,CATLG,DELETE)                                
+//SYSOUT DD SYSOUT=*                                               
+//SYSIN DD *                                                       
+ JOINKEYS F1=ENTRADA1,FIELDS=(35,3,A)                              
+ JOINKEYS F2=ENTRADA2,FIELDS=(1,3,A)                               
+ REFORMAT FIELDS=(F1:1,34,F2:1,23)                                 
+ OPTION COPY                                                       
+/*                                                                 

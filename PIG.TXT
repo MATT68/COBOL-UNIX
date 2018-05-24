@@ -1,0 +1,142 @@
+Creamos el fichero prueba.txt :
+esto es una prueba para tratar datos con
+mapreduce a través de un job con dos tareas
+como es una prueba saldrán datos contando palabras
+como mapreduce, map, reduca.
+es una prueba de un job con dos tareas
+
+Y ahora vamos a tratarlo desde pig. 
+
+grunt> A = load ' /user/cloudera/matt/prueba.txt';
+grunt> B = foreach A generate flatten(TOKENIZE((chararray)$0)) as word;
+grunt> C = group B by word;
+grunt> D = foreach C generate COUNT(B), group;
+grunt> store D into '/user/cloudera/matt/salida.txt';
+
+El resultado es este:
+grunt> cat matt/salida.txt
+1	a
+2	de
+3	es
+2	un
+3	con
+2	dos
+2	job
+1	map
+3	una
+2	como
+1	esto
+1	para
+2	datos
+3	prueba
+2	tareas
+1	tratar
+1	reduca.
+1	través
+1	contando
+1	palabras
+1	saldrán
+2	mapreduce
+
+Pero por si no te has enterado, pddamos hacer un replay, step by step:
+
+A = load ' /user/cloudera/matt/prueba.txt';
+Contenido de A:
+(esto es una prueba para tratar datos con)
+(mapreduce a través de un job con dos tareas)
+(como es una prueba saldrán datos contando palabras)
+(como mapreduce, map, reduca.)
+(es una prueba de un job con dos tareas)
+
+B = foreach A generate flatten(TOKENIZE((chararray)$0)) as word; 
+Contenido de B: 
+(esto)
+(es)
+(una)
+(prueba)
+(para)
+(tratar)
+(datos)
+(con)
+(mapreduce)
+(a)
+(través)
+(de)
+(un)
+(job)
+(con)
+(dos)
+(tareas)
+(como)
+(es)
+(una)
+(prueba)
+(saldrán)
+(datos)
+(contando)
+(palabras)
+(como)
+(mapreduce)
+(map)
+(reduca.)
+(es)
+(una)
+(prueba)
+(de)
+(un)
+(job)
+(con)
+(dos)
+(tareas)
+
+C = group B by word;
+Contenido de C:
+(a,{(a)})
+(de,{(de),(de)})
+(es,{(es),(es),(es)})
+(un,{(un),(un)})
+(con,{(con),(con),(con)})
+(dos,{(dos),(dos)})
+(job,{(job),(job)})
+(map,{(map)})
+(una,{(una),(una),(una)})
+(como,{(como),(como)})
+(esto,{(esto)})
+(para,{(para)})
+(datos,{(datos),(datos)})
+(prueba,{(prueba),(prueba),(prueba)})
+(tareas,{(tareas),(tareas)})
+(tratar,{(tratar)})
+(reduca.,{(reduca.)})
+(través,{(través)})
+(contando,{(contando)})
+(palabras,{(palabras)})
+(saldrán,{(saldrán)})
+(mapreduce,{(mapreduce),(mapreduce)})
+
+Y por último tenemos  D = foreach C generate COUNT(B), group;
+Contenido de D:
+(1,a)
+(2,de)
+(3,es)
+(2,un)
+(3,con)
+(2,dos)
+(2,job)
+(1,map)
+(3,una)
+(2,como)
+(1,esto)
+(1,para)
+(2,datos)
+(3,prueba)
+(2,tareas)
+(1,tratar)
+(1,reduca.)
+(1,través)
+(1,contando)
+(1,palabras)
+(1,saldrán)
+(2,mapreduce)
+
+Es un ejemplo del trabajo típico de mapreduce.

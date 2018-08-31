@@ -144,9 +144,9 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
      Abrir el fichero, leer una fila, hacer un DISPLAY del registro y cerrar.
 
      Cuando se produzca un error:
-	 	   DISPLAYS '*********************************************' 
+	 	   DISPLAY '*********************************************' 
            hacer DISPLAYS de "ERROR OPEN FICHERO " o "ERROR LEER FICHERO"-
-		   DISPLAYS '*********************************************' 
+		   DISPLAY '*********************************************' 
      
      En el párrafo FIN, mostrar las estadísticas del programa:
        - Número de filas leidas.	 
@@ -192,13 +192,10 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
      MOSTRAR ESTADISTICAS AL FINALIZAR EL PROGRAMA.
 	 
      Gestión de errores: cuando aparece un error debemos parar el programa
-	y enviar un mensaje significativo. El programa se parará en el 
-	párrafo de error y desde ese párrafo se harán todos los displays
-	de error.  
+	y enviar un mensaje significativo. Desde el párrafo de error se harán 	todos los displays. El programa se parará en el FIN.
 	  
      Mostrar en las estadísticas, además de los registros totales
 	del fichero, los datos contabilizados ahora.
-
 
 *************************************************************
 ***    ESTADISTICAS DEL PROGRAMA  XXXXXXX                   *
@@ -207,6 +204,19 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ***  ESCRITOS FICHERO SALIDA1:     nnnnnnnn                 *
 ***  ESCRITOS FICHERO SALIDA2:     nnnnnnnn                 *
 *************************************************************
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+X    2.-  COBOL320. 
+X   Objetivos: MOMENTO ADAPTACIÓN A PROYECTO
+X
+x -  a partir de un fichero de entrada generar dos ficheros de salida. 
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+     Fichero de entrada:  FICHERO.EMPLEADO
+     
+     ......
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX

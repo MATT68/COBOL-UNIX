@@ -1,18 +1,18 @@
 
    ***  Programas BASICOS con COBOL  ***********
 
-   ANTES DE HACER PROGRAMAS CON FUNCIONALIDADES M¡S NORMALES, 
+   ANTES DE HACER PROGRAMAS CON FUNCIONALIDADES M√ÅS NORMALES, 
    HAREMOS VARIOS DE PRUEBA PARA FAMILIARIZARNOS CON ALGUNOS ASPECTOS DE COBOL.
 
    ****  PRUEBA01 ******************************************************
    *********************************************************************
 
- 1.-  Declara tres variables WS-VAR1... WS-VAR3, numÈricas. 
-      Declara tambiÈn una constante: CT-DIEZ con el valor 10.	
-      InicialÌzalas en el p·rrafo INICIO.
+ 1.-  Declara tres variables WS-VAR1... WS-VAR3, num√©ricas. 
+      Declara tambi√©n una constante: CT-DIEZ con el valor 10.	
+      Inicial√≠zalas en el p√°rrafo INICIO.
 
  2.-  En el proceso mueve CT-DIEZ a WS-VAR1.
-      DespuÈs mueve WS-VAR1 a WS-VAR3.
+      Despu√©s mueve WS-VAR1 a WS-VAR3.
 
  3.-  En el FIN, displaya el valor de cada variable por separado.
      
@@ -24,21 +24,21 @@
       (Solo OpenCobol: usa la funcion CURRENT-DATE para hacer un move de 
        la fecha de ocho posiciones a una variables YYYYMMDD).
       MOVERLA A UNA ESTRUCTURA PARA "DESCOMPONERLA" EN TRES VARIABLES
-      QUE CONTENGAN EL A—O, EL MES Y EL DIA RESPECTIVAMENTE.
+      QUE CONTENGAN EL A√ëO, EL MES Y EL DIA RESPECTIVAMENTE.
 
  2.-  ADEMAS, EN EL INICIO HACER UN "ACCEPT .... FROM DATE" QUE NOS 
       DEVUELVE LA FECHA DE SEIS BYTES. 
-      DESCOMPONER Y MOSTRAR CON DISPLAYS EL A—O, MES Y DIA.	
+      DESCOMPONER Y MOSTRAR CON DISPLAYS EL A√ëO, MES Y DIA.	
 
    ****  PRUEBA2A ******************************************************
    *********************************************************************
    PARTE 1.
       USO DE BUCLES.
 
-      VAMOS A DEFINIR UNA VARIABLE NUM…RICA PARA USAR COMO CONTADOR.
+      VAMOS A DEFINIR UNA VARIABLE NUM√âRICA PARA USAR COMO CONTADOR.
      (WC-CONTADOR           PIC 9(6)    COMP-3 / BINARY / COMP /COMP-4).
 
-      QUEREMOS HACER UN DISPLAY EN EL QUE SE MUESTREN LOS N⁄MEROS DE 0 A 10.
+      QUEREMOS HACER UN DISPLAY EN EL QUE SE MUESTREN LOS N√öMEROS DE 0 A 10.
 
       WS-CONTADOR           PIC ZZZ,ZZ9.      
       WS-CONTADOR2          PIC 9(6).      
@@ -56,7 +56,7 @@
    ****  PRUEBA03 ******************************************************
    *********************************************************************
 
-  1.- SOBRE EL PROGRAMA ANTERIOR A—ADIR UN IF EN EL PROCESO.
+  1.- SOBRE EL PROGRAMA ANTERIOR A√ëADIR UN IF EN EL PROCESO.
  	   SI EL MES ES 01, DEBE MOSTRAR "ENERO".
 	   SI NO, QUE NO MUESTRE NADA.
 
@@ -70,36 +70,36 @@
 	DECIMAL-POINT IS COMMA.
 	SYSIN         IS SYSIN.
       
-        1.- EN EL PARRAFO INICIO, A—ADE UNA SENTENCIA PARA TOMAR UN VALOR DE SYSIN.
+        1.- EN EL PARRAFO INICIO, A√ëADE UNA SENTENCIA PARA TOMAR UN VALOR DE SYSIN.
 
 	   ACCEPT   .... FROM SYSIN 
 
         2.- EL VALOR ACEPTADO DEBES GUARDARLO EN UNA VARIABLE X(10).
 
-	3.- VAMOS A A—ADIR VARIOS IF PARA TESTEAR DIFERENTES COSAS:
-       	 - SI EL VALOR INTRODUCIDO ES NUM…RICO MUESTRA: "ES UN N⁄MERO"
-	     - SI EL VALOR ES ALFAB…TICO  MUESTRO : "ES UNA LETRA"
+	3.- VAMOS A A√ëADIR VARIOS IF PARA TESTEAR DIFERENTES COSAS:
+       	 - SI EL VALOR INTRODUCIDO ES NUM√âRICO MUESTRA: "ES UN N√öMERO"
+	     - SI EL VALOR ES ALFAB√âTICO  MUESTRO : "ES UNA LETRA"
 	     - SI EL VALOR ES OTRA COSA MUESTRA: "ES UN CARACTER ".
 
 	4.- AL EJECUTAR EL PROGRAMA, TE PIDE QUE LE INTRODUZCAS UN VALOR. HAZ VARIAS
-	EJECUCIONES CON DIFERENTES VALORES PARA PROBAR TODAS LAS CASUÕSTICAS.
+	EJECUCIONES CON DIFERENTES VALORES PARA PROBAR TODAS LAS CASU√çSTICAS.
 
    ****  PRUEBA05 ******************************************************
    *********************************************************************
 
-        6.- EN ESTE PROGRAMA VAMOS A REALIZAR DIFERENTES C¡LCULOS ARITM…TICOS.
+        6.- EN ESTE PROGRAMA VAMOS A REALIZAR DIFERENTES C√ÅLCULOS ARITM√âTICOS.
  	PARA ELLO USAREMOS LA SENTENCIA ACCEPT WS-.... FROM SYSIN.
 	
 	EL PROGRAMA DEBE ACEPTAR UN PAR DE VALORES POR "SYSIN".
 
 	CON ESOS DOS VALORES DEBES REALIZAR LAS SIGUIENTES ACCIONES:
 
-	- VALIDAR QUE SON VALORES NUM…RICOS.
+	- VALIDAR QUE SON VALORES NUM√âRICOS.
 
-	- MOSTRAR LA SIGUIENTE INFORMACI”N (HACIENDO LOS C¡LCULOS QUE PRECISES):
+	- MOSTRAR LA SIGUIENTE INFORMACI√ìN (HACIENDO LOS C√ÅLCULOS QUE PRECISES):
 		A- NUMERO1  POR    NUMERO2  SON NUMERO3 
 		B- NUMERO1  ENTRE  NUMERO2  SON NUMERO3 Y SU RESTO ES NUMERO4
-		C- NUMERO1  M¡S    NUMERO2  SON NUMERO3 
+		C- NUMERO1  M√ÅS    NUMERO2  SON NUMERO3 
 		D- NUMERO1  MENOS  NUMERO2  SON NUMERO3 
          	(RECUERDA QUE LAS VARIABLES DEL PROGRAMA DEBES DEFINIRLAS COMO 
           		WS-NUM... )
@@ -108,7 +108,7 @@
 		A- +1234,34
 		B- 1234,34+
 		C- 00001234,34 
-		D- +0001234,34 Ä 
+		D- +0001234,34 ‚Ç¨ 
 		
 
    ****  PRUEBA06 ******************************************************
@@ -127,7 +127,7 @@
    ***************************************************************** 
    ***  Programas "Normales" con COBOL                            **
    ***  Los siguientes programas emulan el uso habitual de COBOL  **
-   ***  en cualquier instalaciÛn de un cliente final.		  **	
+   ***  en cualquier instalaci√≥n de un cliente final.		  **	
    ***************************************************************** 
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -148,8 +148,8 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
            hacer DISPLAYS de "ERROR OPEN FICHERO " o "ERROR LEER FICHERO"-
 		   DISPLAY '*********************************************' 
      
-     En el p·rrafo FIN, mostrar las estadÌsticas del programa:
-       - N˙mero de filas leidas.	 
+     En el p√°rrafo FIN, mostrar las estad√≠sticas del programa:
+       - N√∫mero de filas leidas.	 
 
      Fase 2.
      Abrir el fichero, leer todas las filas y cerrar.
@@ -157,11 +157,11 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
      NUM. EMPLEADO   : 000150
      NOMBRE EMPLEADO : LUCIA.
 	 
-     Adem·s mostramos estadÌsticas y gestionamos errores.
+     Adem√°s mostramos estad√≠sticas y gestionamos errores.
 
      Fase 3.
         Contabilizar cuandos empleados trabajan en los departamentos 
-        cuya primera letra es 'A' Û 'B' Û 'D' Û el resto. 
+        cuya primera letra es 'A' √≥ 'B' √≥ 'D' √≥ el resto. 
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -191,10 +191,10 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
      MOSTRAR ESTADISTICAS AL FINALIZAR EL PROGRAMA.
 	 
-     GestiÛn de errores: cuando aparece un error debemos parar el programa
-	y enviar un mensaje significativo. Desde el p·rrafo de error se har·n 	todos los displays. El programa se parar· en el FIN.
+     Gesti√≥n de errores: cuando aparece un error debemos parar el programa
+	y enviar un mensaje significativo. Desde el p√°rrafo de error se har√°n 	todos los displays. El programa se parar√° en el FIN.
 	  
-     Mostrar en las estadÌsticas, adem·s de los registros totales
+     Mostrar en las estad√≠sticas, adem√°s de los registros totales
 	del fichero, los datos contabilizados ahora.
 
 *************************************************************
@@ -208,7 +208,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 X    2.-  COBOL320. 
-X   Objetivos: MOMENTO ADAPTACI”N A PROYECTO
+X   Objetivos: MOMENTO ADAPTACI√ìN A PROYECTO
 X
 x -  a partir de un fichero de entrada generar dos ficheros de salida. 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -221,10 +221,39 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 X
+X    2B. OPCIONAL -  RUTEMPL1.
+X   Objetivos: 
+x -  Rutina de consulta del g√©nero de un empleado. 
+X    Recibe como par√°metro de entrada el c√≥digo de consulta y el n√∫mero de 
+X    empleado.
+X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+     Uso de copys:
+         CP_RUTEMPL1.cpy
+
+   La rutina RUTEMPL1 recibir√° en la copy CP_RUTEMPL1.cpy los par√°m. de llamada.
+
+   Tipo de llamada:
+    'C' - Consulta
+    El campo c√≥digo de empleado vendr√° informado.
+    La rutina devuelve el c√≥digo de retorno y el g√©nero del empleado, que ser√° 'F' √≥ 'M'.
+    Funcionalidad de la rutina:
+     " - Si el n√∫mero de empleado es par devolvemos 'F' y si es impar 'M'. 
+     " - Si el n√∫mero es m√∫ltiplo de 13 devolver√° error "XXXXX".
+
+    C√≥digos de retorno:
+    00 - OK
+    01 - C√≥d. empleado vac√≠o.
+    02 - Cod. empleado no existe.
+    03 - Tipo de llamada err√≥neo.
+    04 - Error XXXXX.
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+X
 X    3.-  COBOL350.
 x 
 X   Objetivos: 
-x -  GestiÛn de tablas de memoria/working/internas y sentencia SEARCH
+x -  Gesti√≥n de tablas de memoria/working/internas y sentencia SEARCH
 X    (NIVEL: Medio)
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -238,8 +267,8 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   Ahora muestra el nombre del departamento 17 -con otro display-.
 
   Fase 2.- (SEARCH)
-  Vas a utilizar la sentencia SEARCH para buscar un cÛdigo de departamento.
-  Con un ACCEPT debes tomar por consola el cÛdigo de departamento y hacer un 
+  Vas a utilizar la sentencia SEARCH para buscar un c√≥digo de departamento.
+  Con un ACCEPT debes tomar por consola el c√≥digo de departamento y hacer un 
   DISPLAY del nombre. 
 
   Fase 3.- (SEARCH ALL)
@@ -254,7 +283,7 @@ x    A partir del fichero empleado, escribir en tres ficheros diferentes
 x    los empleados que :
 X     - Ganan menos de 10.000       (fichero SALARIOA)
 X     - Ganan entre 10.000 y 20.000 (fichero SALARIOB)
-X     - Ganan m·s de 20.000         (fichero SALARIOC)
+X     - Ganan m√°s de 20.000         (fichero SALARIOC)
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
@@ -262,12 +291,12 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
      SALARIOA: Empleados que ganan menos de 10.000       
      SALARIOB: Empleados que ganan entre 10.000 y 20.000
-     SALARIOC: Empleados que ganan m·s de 20.000       
+     SALARIOC: Empleados que ganan m√°s de 20.000       
 
      Formato de los tres ficheros:
    NOMBRE - INICIAL - APELLIDO - SALARIO - COMISION - CODEPT - NOMBRE DEPARTAMENTO(20)
    En lugar de especificar el formato de cada registro de salida, usaremos una misma
-   copy para los tres .... øcÛmo?
+   copy para los tres .... ¬øc√≥mo?
 
      MOSTRAR ESTADISTICAS AL FINALIZAR EL PROGRAMA.
 *************************************************************
@@ -285,7 +314,7 @@ X    5.-  COBOL450.
 x 
 X   Objetivos: 
 x -  Modificar el programa COBOL400 para agregar en la salida de los ficheros
-X    la descripciÛn del departamento.
+X    la descripci√≥n del departamento.
 X  
 X    (NIVEL: Medio)
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -295,9 +324,9 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   redefinir esos datos con una tabla de memoria. 
 
   En cada uno de los ficheros de salida debes hacer lo siguiente:
-   - Tomar el cÛdigo de departamento
+   - Tomar el c√≥digo de departamento
    - Buscarlo en la tabla de memoria
-   - Agregar la descripciÛn del departamento a cada fichero de salida.
+   - Agregar la descripci√≥n del departamento a cada fichero de salida.
 
 
 
@@ -320,22 +349,22 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 			   FICHERO.EMPLE.AMBOS
 
   El banco A se ha fusionado con otro -Banco B- y los empleado pueden tener 
-  un cÛdigo de empleado repetido.  
+  un c√≥digo de empleado repetido.  
   Vamos a leer los empleados del fichero FICHERO.EMPLEADO -que contiene los 
   empleados del Banco A- y el fichero FICHERO.EMPLEADO.CRUCE -que contiene los 
   empleados del Banco B-. 
   Debemos comparar los registros de ambos ficheros y producir tres ficheros de  
   salida:  
-     FICHERO.EMPLEA: empleados del Banco A que tiene un cÛd. empleado ˙nico
-     FICHERO.EMPLEB: empleados del Banco B que tiene un cÛd. empleado ˙nico
-     FICHERO.EMPLE.AMBOS:  empleados que tienen el cÛd. empleado repetido.
+     FICHERO.EMPLEA: empleados del Banco A que tiene un c√≥d. empleado √∫nico
+     FICHERO.EMPLEB: empleados del Banco B que tiene un c√≥d. empleado √∫nico
+     FICHERO.EMPLE.AMBOS:  empleados que tienen el c√≥d. empleado repetido.
 
-  El fichero FICHERO.EMPLE.AMBOS tendr· un registro con:
-   -  n˙mero de empleado
+  El fichero FICHERO.EMPLE.AMBOS tendr√° un registro con:
+   -  n√∫mero de empleado
    -  el resto de los campos del fichero FICHERO.EMPLEADO 
-   -  m·s todos los campos del fichero   FICHERO.EMPLEADO.CRUCE.
+   -  m√°s todos los campos del fichero   FICHERO.EMPLEADO.CRUCE.
 
-  El resto de ficheros tendr· la misma estructura del fichero FICHERO.EMPLEADO. 
+  El resto de ficheros tendr√° la misma estructura del fichero FICHERO.EMPLEADO. 
  	
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -343,8 +372,8 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 X
 X    7.-  RUTI0720.
 X   Objetivos: 
-x -  Rutina de asignaciÛn de nombre de departamento.
-X    Esta rutina recibe como par·metro el cÛdigo de departamento y
+x -  Rutina de asignaci√≥n de nombre de departamento.
+X    Esta rutina recibe como par√°metro el c√≥digo de departamento y
 X    devuelve el nombre de departamento.
 X
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -353,20 +382,20 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
          COD_DEPART.cpy
          CP_RUTIN0720.cpy
 
-   La rutina RUTIN0720 recibir· en la copy CP_RUTIN0720.cpy los par·m. de llamada.
+   La rutina RUTIN0720 recibir√° en la copy CP_RUTIN0720.cpy los par√°m. de llamada.
 
    Tipo de llamada:
     'C' - Consulta
-    El campo cÛdigo de departamento vendr· informado.
+    El campo c√≥digo de departamento vendr√° informado.
     La rutina devuelve la nombre del departamento.
     Para recuperar el nombre del departamento se usa una tabla de memoria junto con 
     la copy COD_DEPART.cpy.
 
-    CÛdigos de retorno:
+    C√≥digos de retorno:
     00 - OK
-    01 - CÛd. departamento vacÌo.
+    01 - C√≥d. departamento vac√≠o.
     02 - Nombre de departamento no encontrado.		
-    03 - Tipo de llamada errÛneo.	
+    03 - Tipo de llamada err√≥neo.	
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 X
@@ -383,13 +412,13 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
      SALIDA : fichero.empleado.depart
               NUEMPL-NOMBRE-APELLIDO-COD_DEPT-NOMBRE_DEPARTAMENTO
 
-     El programa lee el fichero ENTRADA y por cada empleado deber· llamar a
-     la rutina RUTIN0720 informando el cÛdigo de departamento para recuperar
+     El programa lee el fichero ENTRADA y por cada empleado deber√° llamar a
+     la rutina RUTIN0720 informando el c√≥digo de departamento para recuperar
      el nombre del departamento.
 
-     En el fichero de SALIDA se reflejar·n los empleados con el nombre de 
+     En el fichero de SALIDA se reflejar√°n los empleados con el nombre de 
     departamento recuperado de la rutina.
-     Si la rutina no muestra ning˙n nombre, en el fichero se indicar·:
+     Si la rutina no muestra ning√∫n nombre, en el fichero se indicar√°:
       ' SIN DESCRIPCION '.
   
 
@@ -401,18 +430,18 @@ X
 X    4.-  COBOL600.
 x 
 X   Objetivos: 
-x -  GestiÛn de tablas de memoria y sentencia SEARCH 
+x -  Gesti√≥n de tablas de memoria y sentencia SEARCH 
 X    (NIVEL: Alto)
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-  Vamos a decodificar el cÛdigo de departamento.
+  Vamos a decodificar el c√≥digo de departamento.
  
   Para ello tenemos un fichero llamado:  
     FICHERO.CODEPART 
   que contiene el codigo y la descripcion del departamento.
 
-  (Partiendo del programa COBOL300 que leÌa empleados y escribÌa
+  (Partiendo del programa COBOL300 que le√≠a empleados y escrib√≠a
    los ficheros SALIDA1 y SALIDA2)     
 
   Para ello  haremos lo siguiente:
@@ -420,28 +449,28 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   una tabla de memoria.
 
   - Durante el proceso, cada vez que vayamos a escribir en SALIDA2,
-  "decodificaremos" el cÛdigo del departamento para mostrar en su lugar 
-  la descripciÛn del departamento.  
+  "decodificaremos" el c√≥digo del departamento para mostrar en su lugar 
+  la descripci√≥n del departamento.  
  
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 X
 X    4.5 .-  COBOL650.
 x 
 X   Objetivos: 
-x -  GestiÛn de tablas de memoria y sentencia SEARCH 
-X    ModificaciÛn sobre el programa COBOL600
+x -  Gesti√≥n de tablas de memoria y sentencia SEARCH 
+X    Modificaci√≥n sobre el programa COBOL600
 X    (NIVEL: Alto)
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-  Vamos  a realizar una modificaciÛn sobre el programa COBOL600 anterior que
-  hacÌa una carga de un fichero en memoria y luego usaba la tabla de memoria 
-  para decodificar el cÛdigo de departamento.
+  Vamos  a realizar una modificaci√≥n sobre el programa COBOL600 anterior que
+  hac√≠a una carga de un fichero en memoria y luego usaba la tabla de memoria 
+  para decodificar el c√≥digo de departamento.
 
   Ahora vamos a usar como fichero para cargar en memoria, el fichero     
-    FICHERO.CODEPART.CAMBIO que contiene adem·s el jefe del departamento. 
+    FICHERO.CODEPART.CAMBIO que contiene adem√°s el jefe del departamento. 
  
-  La modificaciÛn del programa consiste en:  
+  La modificaci√≥n del programa consiste en:  
     - En el fichero SALIDA2, en lugar del nombre del departamento mostramos 
       el jefe del depart.
    
@@ -463,19 +492,19 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 			   FICHERO.EMPLE.SIN
 			   FICHERO.DEPART.SIN
 
-  Queremos cruzar los ficheros de entrada por el cÛdigo de departamento. 
+  Queremos cruzar los ficheros de entrada por el c√≥digo de departamento. 
   Debemos comparar los registros de ambos ficheros y producir tres ficheros de  
   salida:  
-     FICHERO.EMPLE.DEPART: empleados con el cÛd. departamento en CODEPART.
-     FICHERO.EMPLE.SIN   : empleados que su cÛd. departamento no est· en CODEPART.
-     FICHERO.DEPART.SIN  : Departamentos que no est·n en empleados.
+     FICHERO.EMPLE.DEPART: empleados con el c√≥d. departamento en CODEPART.
+     FICHERO.EMPLE.SIN   : empleados que su c√≥d. departamento no est√° en CODEPART.
+     FICHERO.DEPART.SIN  : Departamentos que no est√°n en empleados.
 
-     El fichero FICHERO.EMPLE.DEPART tendr· un registro similar al FICHERO.EMPLEADO m·s la descripciÛn del departamento al final del fichero.     	 
-     El fichero FICHERO.EMPLE.SIN  tendr· un registro similar al FICHERO.EMPLEADO m·s el texto "NO EXISTE EL DEPARTAMENTO" al final del fichero.     	
-     El fichero FICHERO.DEPART.SIN tendr· un registro similar al FICHERO.CODEPART m·s el texto "SIN EMPLEADOS" al final del fichero.     	
+     El fichero FICHERO.EMPLE.DEPART tendr√° un registro similar al FICHERO.EMPLEADO m√°s la descripci√≥n del departamento al final del fichero.     	 
+     El fichero FICHERO.EMPLE.SIN  tendr√° un registro similar al FICHERO.EMPLEADO m√°s el texto "NO EXISTE EL DEPARTAMENTO" al final del fichero.     	
+     El fichero FICHERO.DEPART.SIN tendr√° un registro similar al FICHERO.CODEPART m√°s el texto "SIN EMPLEADOS" al final del fichero.     	
 
-     El programa debe hacer un control de errores despuÈs de cada interacciÛn con ficheros/tablas/rutinas.
-     Se debe mostrar una estadÌstica completa de ejecuciÛn al final del programa.
+     El programa debe hacer un control de errores despu√©s de cada interacci√≥n con ficheros/tablas/rutinas.
+     Se debe mostrar una estad√≠stica completa de ejecuci√≥n al final del programa.
 
    *********************************************************************
    *********************************************************************
@@ -483,69 +512,69 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
    *********************************************************************
    *********************************************************************
 
-   La extensiÛn de estos programas ser· .sqb
+   La extensi√≥n de estos programas ser√° .sqb
 
    ****  COBS900.sqb ******************************************************
-   *  Vamos a construir un programa que tome como par·metro un n˙mero de empleado
+   *  Vamos a construir un programa que tome como par√°metro un n√∫mero de empleado
    *  y lo busque en la tabla de empleados.
    *********************************************************************
 
-    Nuestro programa acceder· a la tabla EMPLOYEE -el instructor te dir· donde esta-.
+    Nuestro programa acceder√° a la tabla EMPLOYEE -el instructor te dir√° donde esta-.
     
-    Le pasaremos al programa como par·metro un n˙mero de empleado de 6 bytes. 
+    Le pasaremos al programa como par√°metro un n√∫mero de empleado de 6 bytes. 
 
-    El programa har· una SELECT a la table EMPLOYEE con ese n˙mero de empleado y
-    devolver· el NOMBRE, APELLIDO y SALARIO del empleado.
+    El programa har√° una SELECT a la table EMPLOYEE con ese n√∫mero de empleado y
+    devolver√° el NOMBRE, APELLIDO y SALARIO del empleado.
   
     Debes agregar la SQLCA a tu programa.
    
-    Si la "copy" de la tabla de empleados no est· lista... deber·s agregar las tres
+    Si la "copy" de la tabla de empleados no est√° lista... deber√°s agregar las tres
     variables "a mano" (NOMBRE, APELLIDO y SALARIO).
 
    *********************************************************************
    ****  COBS910.sqb ******************************************************
-   *  Este programa ACCEPTa un cÛdigo de departamento y devuelve
-   *  el nombre, apellido y telÈfono del director, junto al nombre del proyecto
+   *  Este programa ACCEPTa un c√≥digo de departamento y devuelve
+   *  el nombre, apellido y tel√©fono del director, junto al nombre del proyecto
    *  (PROJNAME) que tenga el mayor PROJNO de aquellos que corresponden a
    * nuestro Departamento.
    *********************************************************************
    *********************************************************************
 
-    Nuestro programa acceder· a las tablas DEPARTMENT y PROJECT.
+    Nuestro programa acceder√° a las tablas DEPARTMENT y PROJECT.
     
-    Le pasaremos al programa como par·metro un cÛdigo de departamento de 3 bytes. 
+    Le pasaremos al programa como par√°metro un c√≥digo de departamento de 3 bytes. 
 
-    El programa har· una SELECT a la table DEPARTMENT con ese n˙mero de departamento     
-    y recuperar· el director.
+    El programa har√° una SELECT a la table DEPARTMENT con ese n√∫mero de departamento     
+    y recuperar√° el director.
 
-    Con el director leer· en EMPLOYEE el nombre, apellido y tlf del director.
+    Con el director leer√° en EMPLOYEE el nombre, apellido y tlf del director.
 
-    Con el cÛdigo de departamento, acceder· a PROJECT y de los proyectos de este             departamento recuperar· el nombre del que tenga el mayor PROJNO.
+    Con el c√≥digo de departamento, acceder√° a PROJECT y de los proyectos de este             departamento recuperar√° el nombre del que tenga el mayor PROJNO.
 
-    Finalmente el programa mostrar· todo con displays.
+    Finalmente el programa mostrar√° todo con displays.
     
     Debes agregar la SQLCA a tu programa.
    
-    Recuerda hacer controles de error despuÈs de cada llamada a la base de datos.
+    Recuerda hacer controles de error despu√©s de cada llamada a la base de datos.
   
    *********************************************************************
    ****  COBS920.sqb ******************************************************
-   *  Este programa ACCEPTa un cÛdigo de departamento (ADMRDEPT).
+   *  Este programa ACCEPTa un c√≥digo de departamento (ADMRDEPT).
    *   y devuelve para ese ADMRDEPT todos los departamentos que le reportan
    *********************************************************************
    *********************************************************************
 
-    Nuestro programa acceder· a la tabla DEPARTMENT con un cursor.
+    Nuestro programa acceder√° a la tabla DEPARTMENT con un cursor.
     
-    Le pasaremos al programa como par·metro un cÛdigo de departamento de 3 bytes. 
+    Le pasaremos al programa como par√°metro un c√≥digo de departamento de 3 bytes. 
 
-    El programa har· un cursor sobre la tabla DEPARTMENT con ese n˙mero de departamento       de administraciÛn y recuperar· el cÛdigo  y el nombre de departamento.
+    El programa har√° un cursor sobre la tabla DEPARTMENT con ese n√∫mero de departamento       de administraci√≥n y recuperar√° el c√≥digo  y el nombre de departamento.
 
-    Har· un DISPLAY por cada departamento.
+    Har√° un DISPLAY por cada departamento.
  
-    Muestra las estadÌsticas del programa.
+    Muestra las estad√≠sticas del programa.
     
-    Recuerda hacer controles de error despuÈs de cada llamada a la base de datos.
+    Recuerda hacer controles de error despu√©s de cada llamada a la base de datos.
 
 
 

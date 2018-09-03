@@ -1,0 +1,21 @@
+      ******************************************************************
+      **             COPY FICH SALIDA NNN EMPLEADOS                   **
+      ******************************************************************
+       01  WS-SAL1-REG-EMPLEADO.
+           05  WS-SAL1-NOMBRE                      PIC X(12).
+           05  WS-SAL1-INICIAL                     PIC X(1).
+           05  WS-SAL1-APELLIDO                    PIC X(15).
+           05  WS-SAL1-SALARIO                     PIC 9(9)V99 COMP-3.
+           05  WS-SAL1-COMISION                    PIC 9(9)V99 COMP-3.
+           05  WS-SAL1-CODEPT                      PIC X(3).
+           05  WS-SAL1-FECHA                       PIC X(8).
+      *****************************************************************
+      **             COPY FICH SALIDA2    EMPLEADOS                   **
+      ******************************************************************
+       01  WS-SAL2-REG-EMPLEADO.
+           05  WS-SAL2-NUEMPL                      PIC X(6).
+           05  WS-SAL2-NOMBRE                      PIC X(12).
+           05  WS-SAL2-APELLIDO                    PIC X(15).
+           05  WS-SAL2-CODEPT                      PIC X(3).
+           05  WS-SAL2-SALARIO                     PIC 9(9)V99.
+           05  WS-SAL2-FECHA                       PIC X(8).

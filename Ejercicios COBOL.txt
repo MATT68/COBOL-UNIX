@@ -1,47 +1,37 @@
 
    ***  Programas BASICOS con COBOL  ***********
 
-   ANTES DE HACER PROGRAMAS CON FUNCIONALIDADES MÁS NORMALES, 
-   HAREMOS VARIOS DE PRUEBA PARA FAMILIARIZARNOS CON ALGUNOS ASPECTOS DE COBOL.
+   ANTES DE HACER PROGRAMAS CON FUNCIONALIDADES MÁS NORMALES, HAREMOS VARIOS DE PRUEBA PARA 
+   FAMILIARIZARNOS CON ALGUNOS ASPECTOS DE    COBOL.
 
    ****  PRUEBA01 ******************************************************
    *********************************************************************
-
  1.-  Declara tres variables WS-VAR1... WS-VAR3, numéricas. 
-      Declara también una constante: CT-DIEZ con el valor 10.	
+      Define cada una con un formato numérico editable diferente.
+      Declara también una constante: CT-DIEZ-MIL con el valor 10000.	
       Inicialízalas en el párrafo INICIO.
 
- 2.-  En el proceso mueve CT-DIEZ a WS-VAR1.
+ 2.-  En el proceso mueve CT-DIEZ-MIL a WS-VAR1.
       Después mueve WS-VAR1 a WS-VAR3.
-
+      Suma el valor de WS-VAR1 a WS-VAR3 y almacénalo en WS-VAR2.
+   
  3.-  En el FIN, displaya el valor de cada variable por separado.
      
    ****  PRUEBA02 ******************************************************
    *********************************************************************
+   PARTE 1. (USO DE BUCLES)
 
- 1.-  TOMAR LA FECHA DEL SISTEMA.       
-      [   ACCEPT  WS-DATE  FROM  DATE   ]
-      (Solo OpenCobol: usa la funcion CURRENT-DATE para hacer un move de 
-       la fecha de ocho posiciones a una variables YYYYMMDD).
-      MOVERLA A UNA ESTRUCTURA PARA "DESCOMPONERLA" EN TRES VARIABLES
-      QUE CONTENGAN EL AÑO, EL MES Y EL DIA RESPECTIVAMENTE.
+      QUEREMOS HACER UN DISPLAY EN EL QUE SE MUESTREN LOS NÚMEROS 
+       DEL 10000 AL 11000 (EN INCREMENTOS DE 100).
 
- 2.-  ADEMAS, EN EL INICIO HACER UN "ACCEPT .... FROM DATE" QUE NOS 
-      DEVUELVE LA FECHA DE SEIS BYTES. 
-      DESCOMPONER Y MOSTRAR CON DISPLAYS EL AÑO, MES Y DIA.	
+      ANTES DE MOSTRAR EL NÚMERO, MUEVELO A DOS VARIABLES DEFINIDAS COMO:
+        05  WS-NUMEROS.
+            10 WS-NUMX               PIC   ZZZ,ZZ9.      
+            10 WS-NUM4               PIC   999,999.      
+            10 WS-NUM5               PIC    9(8) COMP-3.      
+            10 WS-NUM6               PIC    9(6) BINARY / COMP-4.
 
-   ****  PRUEBA2A ******************************************************
-   *********************************************************************
-   PARTE 1.
-      USO DE BUCLES.
-
-      VAMOS A DEFINIR UNA VARIABLE NUMÉRICA PARA USAR COMO CONTADOR.
-     (WC-CONTADOR           PIC 9(6)    COMP-3 / BINARY / COMP /COMP-4).
-
-      QUEREMOS HACER UN DISPLAY EN EL QUE SE MUESTREN LOS NÚMEROS DE 0 A 10.
-
-      WS-CONTADOR           PIC ZZZ,ZZ9.      
-      WS-CONTADOR2          PIC 9(6).      
+      .... Y YA DESPUÉS HACES LOS DISPLAYS.
 
    PARTE 2.
 	AGREGAR AL PROGRAMA, EN LA ENVIRONMENT DIVISION, DESPUES DE LA 
@@ -54,6 +44,16 @@
         VUELVE A EJECUTAR Y COMPRUEBA LA DIFERENCIA CON LA PRIMERA PARTE.
                    
    ****  PRUEBA03 ******************************************************
+   *********************************************************************
+
+ 1A.-  TOMAR LA FECHA DEL SISTEMA CON UN ACCEPT.       
+      EN EL INICIO HACER EL "ACCEPT .... FROM DATE" QUE NOS 
+      DEVUELVE LA FECHA CON EL FORMATO PEDIDO. 
+      DESCOMPONER Y MOSTRAR CON DISPLAYS EL AÑO, MES Y DIA.
+       	
+ 2A.- HACER UN DISPLAY DE LA FECHA EN FORMATO:  DD/MM/YYYY.
+ 
+   ****  PRUEBA04 ******************************************************
    *********************************************************************
 
   1.- SOBRE EL PROGRAMA ANTERIOR AÑADIR UN IF EN EL PROCESO.
@@ -70,7 +70,7 @@
 	DECIMAL-POINT IS COMMA.
 	SYSIN         IS SYSIN.
       
-        1.- EN EL PARRAFO INICIO, AÑADE UNA SENTENCIA PARA TOMAR UN VALOR DE SYSIN.
+        1.- EN EL PARRAFO INICIO, AÑADE UNA SENTENCIA PARA TOMAR UN VALOR         DE SYSIN.
 
 	   ACCEPT   .... FROM SYSIN 
 
@@ -81,8 +81,7 @@
 	     - SI EL VALOR ES ALFABÉTICO  MUESTRO : "ES UNA LETRA"
 	     - SI EL VALOR ES OTRA COSA MUESTRA: "ES UN CARACTER ".
 
-	4.- AL EJECUTAR EL PROGRAMA, TE PIDE QUE LE INTRODUZCAS UN VALOR. HAZ VARIAS
-	EJECUCIONES CON DIFERENTES VALORES PARA PROBAR TODAS LAS CASUÍSTICAS.
+	4.- AL EJECUTAR EL PROGRAMA, TE PIDE QUE LE INTRODUZCAS UN VALOR.         HAZ VARIAS EJECUCIONES CON DIFERENTES VALORES PARA PROBAR TODAS LAS       CASUÍSTICAS.
 
    ****  PRUEBA05 ******************************************************
    *********************************************************************
@@ -154,14 +153,42 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
      Fase 2.
      Abrir el fichero, leer todas las filas y cerrar.
      En el proceso hacemos un DISPLAY de cada nombre y numero de empleado.
-     NUM. EMPLEADO   : 000150
-     NOMBRE EMPLEADO : LUCIA.
+     NUM. EMPLEADO    : 000150
+     NOMBRE EMPLEADO  : LUCIA.
+     SALARIO EMPLEADO : 000000750,00
+     COMSION EMPLEADO : 000000050,00
 	 
      Además mostramos estadísticas y gestionamos errores.
 
      Fase 3.
         Contabilizar cuandos empleados trabajan en los departamentos 
         cuya primera letra es 'A' ó 'B' ó 'D' ó el resto. 
+
+     Fase 4:
+        Gestión de errores.
+        Después de un error se debe parar el programa.
+        Para ello crearemos un párrafo 9100-GESTION-ERROR
+        desde el cuál se harán los displays y se parará el programa
+        (llamando para ello al párrafo 8000-FIN).
+        Para hacer los displays deberemos usar variables y literales
+        con el fin de conseguir este tipo de mensaje:
+
+         **********************************************
+         **   ERROR EN EL PROGRAMA : XXXXXXXXXXXXXX   *
+         **   PARRAFO DEL ERROR    : XXXXXXXXXXXXXX   *
+         **   OPERACION            : XXXXXXXXXXXXXX   *
+         **   FICHERO              : XXXXXXXXXXXXXX   *
+         **   FILE STATUS          : XX               *
+         **********************************************
+       
+        
+        9100-GESTION-ERROR.
+
+            DISPLAY '**********************************************'
+            DISPLAY '**   OPERACION       : '   WS-OPERACION
+    
+ 
+        
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -207,16 +234,18 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X    2.-  COBOL320. 
-X   Objetivos: MOMENTO ADAPTACIÓN A PROYECTO
+X    2.-  COBOL900. 
+X   Objetivos: 
 X
-x -  a partir de un fichero de entrada generar dos ficheros de salida. 
+x -  Programa que invoca a la rutina RUTEMPL1 para saber el sexo del empleado. 
+X   
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
      Fichero de entrada:  FICHERO.EMPLEADO
      
-     ......
+     Por cada registro de empleado, llama a la rutina dándole el NUEMPL 
+     y esta devuelve el género del empleado.
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -245,9 +274,10 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     Códigos de retorno:
     00 - OK
     01 - Cód. empleado vacío.
-    02 - Cod. empleado no existe.
+    02 - Cod. empleado erróneo.
     03 - Tipo de llamada erróneo.
     04 - Error XXXXX.
+
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 X
 X    3.-  COBOL350.
@@ -275,27 +305,25 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   Lo mismo que en la fase 2, pero ahora con un SEARCH ALL.
 
 
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 X    4.-  COBOL400. (MOMENTO ADAPTACIÓN A PROYECTO)
-X   Objetivos: 
-x    A partir del fichero empleado, escribir en tres ficheros diferentes 
-x    los empleados que :
+X   Objetivos: A partir del fichero empleado, escribir en tres ficheros X   diferentes los empleados que :
 X     - Ganan menos de 10.000       (fichero SALARIOA)
 X     - Ganan entre 10.000 y 20.000 (fichero SALARIOB)
-X     - Ganan más de 20.000         (fichero SALARIOC)
+ºX     - Ganan más de 20.000         (fichero SALARIOC)
+X   Se consideran ganancias a la suma del salario más la comisión. 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+     Ficheros:
+     fichero.empleado
+     salarioa: Empleados que ganan menos de 10.000       
+     salariob: Empleados que ganan entre 10.000 y 20.000
+     salarioc: Empleados que ganan más de 20.000       
 
-     Fichero de entrada:  FICHERO.EMPLEADO
-
-     SALARIOA: Empleados que ganan menos de 10.000       
-     SALARIOB: Empleados que ganan entre 10.000 y 20.000
-     SALARIOC: Empleados que ganan más de 20.000       
-
-     Formato de los tres ficheros:
-   NOMBRE - INICIAL - APELLIDO - SALARIO - COMISION - CODEPT - FECHA (FORMATO DDMMYYYY).
-   En lugar de especificar el formato de cada registro de salida, usaremos una misma
-   copy para los tres .... ¿cómo?
+     Formato de los tres ficheros:   NOMBRE - INICIAL - APELLIDO - SALARIO - COMISION - CODEPT - FECHA (FORMATO DDMMYYYY).
+   En lugar de especificar el formato de cada registro de salida, usaremos una misma copy para los tres .... ¿cómo?
+   COPY salidax REPLACING ==:NNN:== BY ==WS-SAL1==.
 
      MOSTRAR ESTADISTICAS AL FINALIZAR EL PROGRAMA.
 *************************************************************
@@ -312,7 +340,7 @@ X
 X    5.-  COBOL450.
 x 
 X   Objetivos: 
-x -  Modificar el programa COBOL400 para agregar en la salida de los ficheros
+x -  Modificar el programa COBOL300 para agregar en la salida de los ficheros
 X    la descripción del departamento.
 X  
 X    (NIVEL: Medio)
@@ -331,7 +359,6 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X
 X    6.-  COBOL500.
 x 
 X   Objetivos: 
@@ -347,13 +374,12 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 			   FICHERO.EMPLEB
 			   FICHERO.EMPLE.AMBOS
 
-  El banco A se ha fusionado con otro -Banco B- y los empleado pueden tener 
+  El banco A se ha fusionado con otro -Banco B- y los empleados pueden tener 
   un código de empleado repetido.  
   Vamos a leer los empleados del fichero FICHERO.EMPLEADO -que contiene los 
   empleados del Banco A- y el fichero FICHERO.EMPLEADO.CRUCE -que contiene los 
   empleados del Banco B-. 
-  Debemos comparar los registros de ambos ficheros y producir tres ficheros de  
-  salida:  
+  Debemos comparar los registros de ambos ficheros y producir tres ficheros de    salida:  
      FICHERO.EMPLEA: empleados del Banco A que tiene un cód. empleado único
      FICHERO.EMPLEB: empleados del Banco B que tiene un cód. empleado único
      FICHERO.EMPLE.AMBOS:  empleados que tienen el cód. empleado repetido.
@@ -376,27 +402,25 @@ X    Esta rutina recibe como parámetro el código de departamento y
 X    devuelve el nombre de departamento.
 X
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
      Uso de copys:
-         COD_DEPART.cpy
+         CP_COD_DEPART.cpy
          CP_RUTIN0720.cpy
 
-   La rutina RUTIN0720 recibirá en la copy CP_RUTIN0720.cpy los parám. de llamada.
+   La rutina RUTI0720 recibirá en la copy CP_RUTI0720.cpy los parám. de llamada.
 
    Tipo de llamada:
     'C' - Consulta
     El campo código de departamento vendrá informado.
-    La rutina devuelve la nombre del departamento.
-    Para recuperar el nombre del departamento se usa una tabla de memoria junto con 
-    la copy COD_DEPART.cpy.
+    La rutina devuelve el nombre del departamento.
+    Para recuperar el nombre del departamento se usa una tabla de memoria junto con la copy COD_DEPART.cpy.
 
     Códigos de retorno:
-    00 - OK
-    01 - Cód. departamento vacío.
-    02 - Nombre de departamento no encontrado.		
-    03 - Tipo de llamada erróneo.	
-
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      CP0720-RETURN-CODE - CP0720E-MESSAGE
+                      00 - OK
+                      01 - Cód. departamento vacío.
+                      02 - Nombre de departamento no encontrado.		
+                      03 - Tipo de llamada erróneo.	
+    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 X
 X    8.-  COBOL700.
 x 
@@ -412,21 +436,21 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
               NUEMPL-NOMBRE-APELLIDO-COD_DEPT-NOMBRE_DEPARTAMENTO
 
      El programa lee el fichero ENTRADA y por cada empleado deberá llamar a
-     la rutina RUTIN0720 informando el código de departamento para recuperar
+     la rutina RUTI0720 informando el código de departamento para recuperar
      el nombre del departamento.
 
      En el fichero de SALIDA se reflejarán los empleados con el nombre de 
     departamento recuperado de la rutina.
      Si la rutina no muestra ningún nombre, en el fichero se indicará:
       ' SIN DESCRIPCION '.
-  
+ 
 
 
     
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 X
-X    4.-  COBOL600.
+X    4.-  COBOL600.	
 x 
 X   Objetivos: 
 x -  Gestión de tablas de memoria y sentencia SEARCH 
@@ -514,27 +538,63 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
    La extensión de estos programas será .sqb
 
    ****  COBS900.sqb ******************************************************
-   *  Vamos a construir un programa que tome como parámetro un número de empleado
-   *  y lo busque en la tabla de empleados.
+   *  Vamos a construir un programa que tome como parámetro un número de    *    empleado y lo busque en la tabla de empleados.
    *********************************************************************
 
     Nuestro programa accederá a la tabla EMPLOYEE -el instructor te dirá donde esta-.
     
     Le pasaremos al programa como parámetro un número de empleado de 6 bytes. 
 
-    El programa hará una SELECT a la table EMPLOYEE con ese número de empleado y
-    devolverá el NOMBRE, APELLIDO y SALARIO del empleado.
+    El programa hará una SELECT a la table EMPLOYEE con ese número de empleado y devolverá el NOMBRE, APELLIDO, DEPT y SALARIO del empleado.
   
     Debes agregar la SQLCA a tu programa.
    
-    Si la "copy" de la tabla de empleados no está lista... deberás agregar las tres
-    variables "a mano" (NOMBRE, APELLIDO y SALARIO).
+    Si la "copy" de la tabla de empleados no está lista... deberás agregar las tres variables "a mano" (NOMBRE, APELLIDO, DEPT y SALARIO).
+
+   ****  COBS905.sqb ******************************************************
+   *  A partir del COBS900.sqb, construimos un programa que reciba por
+   * consola (ACCEPT) dos parámetros: tipo de operación y numero de    *  empleado.
+   *********************************************************************
+      Si el tipo de operación es 'S' (SELECT) el programa devuelve 
+      todos los campos del empleado.
+      Si el tipo de operación es 'U' (UPDATE) el programa incrementa 
+      el salario un 60%.
+      Si el tipo de operación es 'D' (DELETE) el programa actualiza el             empleado para poner a espacios el nombre y el apellido. 
+
+--- Agregamos una nueva columna a dos tablas para hacer los updates más realistas ---------
+
+su - db2inst1
+-pass: forma2 -
+db2 connect to sample
+db2 alter table DB2INST1.EMPLOYEE   add TIMESTAMP TIMESTAMP;
+db2 alter table DB2INST1.DEPARTMENT add TIMESTAMP TIMESTAMP;
+exit 
+(vuelve al usuario forma2)
+db2 describe table db2inst1.employee
+db2 update db2inst1.employee   set timestamp = current timestamp;
+db2 update db2inst1.department set timestamp = current timestamp;
+
+   ****************** para gestionar nulos  *********************
+ db2 "update db2inst1.employee  set phoneno = NULL where empno in   ('000100','000200','000300')";
+
+     EXEC SQL  . . . 
+         INTO :cm INDICATOR :cmind 
+                . . 
+     END-EXEC
+
+     EXEC SQL  . . . 
+         INTO :cm :cmind 
+                . . 
+     END-EXEC
+     IF cmind LESS THAN 0
+          DISPLAY 'Commission is NULL'
+
+
 
    *********************************************************************
    ****  COBS910.sqb ******************************************************
    *  Este programa ACCEPTa un código de departamento y devuelve
-   *  el nombre, apellido y teléfono del director, junto al nombre del proyecto
-   *  (PROJNAME) que tenga el mayor PROJNO de aquellos que corresponden a
+   *  el nombre, apellido y teléfono del director, junto al nombre del proyecto (PROJNAME) que tenga el mayor PROJNO de aquellos que corresponden a
    * nuestro Departamento.
    *********************************************************************
    *********************************************************************
@@ -543,12 +603,11 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     
     Le pasaremos al programa como parámetro un código de departamento de 3 bytes. 
 
-    El programa hará una SELECT a la table DEPARTMENT con ese número de departamento     
-    y recuperará el director.
+    El programa hará una SELECT a la table DEPARTMENT con ese número de departamento y recuperará el director.
 
     Con el director leerá en EMPLOYEE el nombre, apellido y tlf del director.
 
-    Con el código de departamento, accederá a PROJECT y de los proyectos de este             departamento recuperará el nombre del que tenga el mayor PROJNO.
+    Con el código de departamento, accederá a PROJECT y de los proyectos de este departamento recuperará el nombre del que tenga el mayor PROJNO.
 
     Finalmente el programa mostrará todo con displays.
     

@@ -143,12 +143,18 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
      Abrir el fichero, leer una fila, hacer un DISPLAY del registro y cerrar.
 
      Cuando se produzca un error:
-	 	   DISPLAY '*********************************************' 
-           hacer DISPLAYS de "ERROR OPEN FICHERO " o "ERROR LEER FICHERO"-
-		   DISPLAY '*********************************************' 
+     DISPLAY '*********************************************' 
+        hacer DISPLAYS de "ERROR OPEN FICHERO " o "ERROR LEER FICHERO"-
+	Muestra también el FILE STATUS
+     DISPLAY '*********************************************' 
      
      En el párrafo FIN, mostrar las estadísticas del programa:
        - Número de filas leidas.	 
+
+000010CHRISTINE   IHAAS           A000000007500000000002000
+NUEMPLNOMBRE      IAPELLIDO       DDDSSSSSSSSSSSCCCCCCCCCCC
+ X(6)    12       1     15         3     9(9)V99   9(9)V99     
+
 
      Fase 2.
      Abrir el fichero, leer todas las filas y cerrar.

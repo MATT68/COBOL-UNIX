@@ -1,0 +1,132 @@
+
+xxxxxxxxxxxxxxxxx MAS EJERCICIOS XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+1.-  Mostrar el creador, la fecha y la descripción de todas las incidencias.
+
+2.-  Mostrar las mismas columnas que antes, pero ahora sólo queremos las 
+ incidencias con código issu_id mayor que 20.
+
+3.-  Mostrar las mismas columnas que antes, pero ahora sólo queremos las 
+ incidencias con código issu_id entre 10 y  40 -ambos exclusive-.
+
+4.-  Mostrar las mismas columnas que antes, pero ahora sólo queremos las 
+ incidencias con código issu_id entre 10 y  40 -ambos inclusive-.
+ Ordénalas por nombre del creador.
+
+4.5- Obtener las incidencias creadas por aquellos que el nombre empiece por      'P'.
+
+5.-  Mostrar ahora la version, issu_id, el summary y la descripcion de las
+    issu_id 9, 19 y 29.
+    Ordenadas por ispr_id y istp_id.
+
+6.- Usando la tabla t_issues de la bd issuetk, lanzar una query para contar
+   el número de filas de cada ISIM_ID. Mostrar el ISIM_ID, el número de filas
+   y la suma de los ISPR_ID.
+
+7.- Mostrar del ejercicio anterior, sólo aquellos en los que la suma sea mayor
+   50.
+
+8.- Mostrar el FORNAME, SURNAME y ciudad donde está la oficina de los empleados.
+
+9.- Mostrar además de lo anterior, aquellos empleados que aún no estén 
+   asignados a ninguna oficina.
+
+10.- A partir del ejercicio, modificarlo para mostrar además oficinas sin
+   empleados -si las hubiera-.
+
+11.- Al ejercicio 8, añadirle ahora la columna nombre de la línea de 
+    conocimiento para cada empleado.
+
+ XXXXXXXXXXX   EJERCICIOS CONTRA TEMPLA, TDEPTA, HIJOS .... XXXXXXXXXXXX
+
+(El bloque 0 es para gente sin conocimiento alguno de SQL)
+
+0.2.- MOSTRAR NOMBRE, APELLIDO Y SALARIO DE LOS EMPLEADOS CUYO APELLIDO 
+      EMPIEZA POR M.
+
+0.3.-  MOSTRAR LOS EMPLEADOS QUE GANAN MÁS DE 10000 Y CUYO APELLIDO TERMINA EN 'EZ'.
+
+0.4.-  MOSTRAR LOS EMPLEADOS CONTRATADOS EN EL AÑO 2000.
+
+0.5.- MOSTRAR EL NOMBRE, APELLIDOS, NIVEL DE EDUCACION, FECHA DE NACIMIENTO Y SALARIO 
+      DE LOS EMPLEADOS CON NIVEL DE EDUCACION  11, 12, 14 o 17.
+
+0.6.- MOSTRAR EL NOMBRE DE LOS CONYUGES DE LOS EMPLEADOS 000100 AL 000350, CUYO APELLIDO 
+      EMPIEZA POR 'R' Y QUE TENGAN ENTRE 30 Y 50 AÑOS O MÁS DE 60 A DIA DE HOY.
+
+1.1.- MOSTRAR EL NOMBRE DEL MES EN EL QUE SE CONTRATÓ A CADA EMPLEADO.
+
+1.2.- CONTAR EL NÚMERO DE EMPLEADOS CONTRATADOS EN CADA MES. Y ORDENARLO POR EL MES DE MAYOR
+      CONTRATACIÓN.
+
+1.3.- MOSTRAR LOS NOMBRE EN FORMATO: M. RODRIGUEZ, JUNTO A LA EDAD DE CADA UNO EN AÑOS.
+
+1.4.- MOSTRAR PARA CADA EMPLEADO LA FECHA DE INGRESO Y LA FECHA DEL FINAL DEL PERIODO DE PRUEBAS 
+      (6 MESES DESPUES DE LA DE INGRESO).
+
+2.0.- MOSTRAR EL NOMBRE DEL EMPLEADO JUNTO AL NOMBRE DEL HIJO.
+
+2.- LO MISMO QUE ANTES, PERO TAMBIEN MOSTRAMOS LOS NOMBRES DE LOS 
+    EMPLEADOS SIN HIJOS, INDICANDO " SIN HIJOS " EN EL NOMBRE DEL HIJO. 
+
+2.1- MOSTRAR EL NOMBRE DEL EMPLEADO, EL NOMBRE DEL CONYUGE Y EL NOMBRE 
+     DEL HIJO.
+
+3.- MOSTRAR EL EMPLEADO Y EL DIA DE LA SEMANA QUE FUE CONTRATADO -en letra-.
+
+4.0- MOSTRAR DE CADA DEPARTAMENTO, SU NOMBRE, SU CODIGO Y EL NOMBRE Y APELLIDO 
+     DEL DIRECTOR. 
+
+4.1- MOSTRAR EL EMPLEADO, EL NOMBRE DE SU JEFE Y LOS AUMENTOS 
+   SALARIALES QUE HA TENIDO. SI NO HA TENIDO NINGUNO MOSTRARLO TAMBIEN.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+5.- MOSTRAR LA MEDIA DEL SALARIO PARA CADA DEPARTAMENTO, LA DESVIACION TIPICA, 
+    JUNTO CON EL NÚMERO DE EMPLEADOS DE CADA DEPARTAMENTO.
+
+6.- MOSTRAR EL MAXIMO , EL MINIMO, LA MEDIA, LA VARIANZA Y LA DESVIACION 
+   TIPICA DEL SALARIO DE LOS EMPLEADOS PARA CADA DEPARTAMENTO, 
+   ORDENADO POR LA MEDIA...
+
+6.1.- DE LOS ANTERIORES MOSTRAR SÓLO LOS QUE TENGAN UNA DESVIACION
+      TIPICA MENOR A 4000
+
+7.- MOSTRAR EL NÚMERO DE EMPLEADOS CONTRATADOS EN CADA DÍA DE LA SEMANA 
+    (LUNES, MARTES, ETC.)
+
+8.0- Mostrar los empleados con una subida por encima de la media de la empresa.
+
+8.1- Mostrar los empleados con un salario menor que la media.
+
+8.2- EMPLEADOS CON SALARIO MAYOR QUE LA MEDIA DEL SALARIO DE ALGUN DEPARTAMENTO.
+
+8.3- EMPLEADOS CON SALARIO MAYOR QUE LA MEDIA DEL SALARIO DE TODOS LOS DEPARTAMENTOS.
+
+8.- MOSTRAR LOS EMPLEADOS CON MÁS DE UN HIJO.
+
+9.- MOSTRAR LOS EMPLEADOS SIN HIJOS.
+
+9.1- MOSTRAR LOS EMPLEADOS QUE NO TIENEN CONYUGE. (PUEDES USAR EXISTS O EXCEPT)
+
+10.- MOSTRAR LOS EMPLEADOS QUE GANAN MÁS QUE LA MEDIA DE SU NIVEL DE EDUCACION.
+    
+ (HACERLO CON UNA JOIN SOBRE UNA SUBCONSULTA)
+
+--------            CARGA DE DATOS   -----------------------------------------------------
+
+
+11.- Cargar la tabla de hijos con los datos que aparecen en el fichero datos_carga.txt.
+
+ --------      LARGE OBJECTS  --------------------------------------------------------
+
+12.- AÑADE UNA COLUMNA A LA TABLA T_OFFICES QUE SE LLAME OFFC_FOLLETO Y DE TIPO CLOB/TEXT.
+     AÑADE OTRA COLUMNA LLAMADA OFFC_FOTO DE TIPO BLOB.
+
+13.- CARGA EN LA COLUMNA FOLLETO, EL FICHERO LaBiblia.txt. PARA TODAS LAS FILAS.
+
+14.- CARGA PARA CADA OFICINA, SU FOTO. (SOLO TENEMOS FOTO PARA BARCELONA, MADRID Y SANTIAGO).
+
+
+
+
+

@@ -296,7 +296,7 @@ x -  Gestión de tablas de memoria/working/internas y sentencia SEARCH
 X    (NIVEL: Medio)
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
+   
   Puedes tomar como plantilla un programa sencillo -que funcione-.
   Queremos incorporar una copy con los datos de los departamentos.
   Luego, redefiniremos esos datos con una tabla de memoria. 
@@ -562,7 +562,17 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
    
     Si la "copy" de la tabla de empleados no está lista... deberás agregar las tres variables
     "a mano" (NOMBRE, APELLIDO, DEPT y SALARIO).
+    
+   ****  COBS900A.sqb ******************************************************
+   *    Este programa toma como parámetro el cód. de departamento y accede
+   *    a la tabla DEPARMENT a leer el nombre y director del departamento. 
+   *********************************************************************
 
+    Nuestro programa accederá a la tabla DEPARTMENT.
+    Le pasaremos al programa como parámetro un número de departamento de 3 bytes. 
+    El programa muestra como salida el nombre del departamento junto con el director.
+    Si alguno de los valores anterior es nulo... el programa no debería fallar....
+    
    ****  COBS905.sqb ******************************************************
    *  A partir del COBS900.sqb, construimos un programa que reciba por
    * consola (ACCEPT) dos parámetros: tipo de operación y numero de    

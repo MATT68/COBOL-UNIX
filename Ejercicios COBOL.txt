@@ -81,7 +81,9 @@
 	     - SI EL VALOR ES ALFABÉTICO  MUESTRO : "ES UNA LETRA"
 	     - SI EL VALOR ES OTRA COSA MUESTRA: "ES UN CARACTER ".
 
-	4.- AL EJECUTAR EL PROGRAMA, TE PIDE QUE LE INTRODUZCAS UN VALOR.         HAZ VARIAS EJECUCIONES CON DIFERENTES VALORES PARA PROBAR TODAS LAS       CASUÍSTICAS.
+	4.- AL EJECUTAR EL PROGRAMA, TE PIDE QUE LE INTRODUZCAS UN VALOR.         
+	HAZ VARIAS EJECUCIONES CON DIFERENTES VALORES PARA PROBAR TODAS LAS       
+	CASUÍSTICAS.
 
    ****  PRUEBA05 ******************************************************
    *********************************************************************
@@ -225,7 +227,8 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
      MOSTRAR ESTADISTICAS AL FINALIZAR EL PROGRAMA.
 	 
      Gestión de errores: cuando aparece un error debemos parar el programa
-	y enviar un mensaje significativo. Desde el párrafo de error se harán 	todos los displays. El programa se parará en el FIN.
+	y enviar un mensaje significativo. Desde el párrafo de error se harán 	
+	todos los displays. El programa se parará en el FIN.
 	  
      Mostrar en las estadísticas, además de los registros totales
 	del fichero, los datos contabilizados ahora.
@@ -544,28 +547,33 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
    La extensión de estos programas será .sqb
 
    ****  COBS900.sqb ******************************************************
-   *  Vamos a construir un programa que tome como parámetro un número de    *    empleado y lo busque en la tabla de empleados.
+   *  Vamos a construir un programa que tome como parámetro un número de   
+   *    empleado y lo busque en la tabla de empleados.
    *********************************************************************
 
     Nuestro programa accederá a la tabla EMPLOYEE -el instructor te dirá donde esta-.
     
     Le pasaremos al programa como parámetro un número de empleado de 6 bytes. 
 
-    El programa hará una SELECT a la table EMPLOYEE con ese número de empleado y devolverá el NOMBRE, APELLIDO, DEPT y SALARIO del empleado.
+    El programa hará una SELECT a la table EMPLOYEE con ese número de empleado y devolverá 
+    el NOMBRE, APELLIDO, DEPT y SALARIO del empleado.
   
     Debes agregar la SQLCA a tu programa.
    
-    Si la "copy" de la tabla de empleados no está lista... deberás agregar las tres variables "a mano" (NOMBRE, APELLIDO, DEPT y SALARIO).
+    Si la "copy" de la tabla de empleados no está lista... deberás agregar las tres variables
+    "a mano" (NOMBRE, APELLIDO, DEPT y SALARIO).
 
    ****  COBS905.sqb ******************************************************
    *  A partir del COBS900.sqb, construimos un programa que reciba por
-   * consola (ACCEPT) dos parámetros: tipo de operación y numero de    *  empleado.
+   * consola (ACCEPT) dos parámetros: tipo de operación y numero de    
+   *  empleado.
    *********************************************************************
       Si el tipo de operación es 'S' (SELECT) el programa devuelve 
       todos los campos del empleado.
       Si el tipo de operación es 'U' (UPDATE) el programa incrementa 
       el salario un 60%.
-      Si el tipo de operación es 'D' (DELETE) el programa actualiza el             empleado para poner a espacios el nombre y el apellido. 
+      Si el tipo de operación es 'D' (DELETE) el programa actualiza el            
+      empleado para poner a espacios el nombre y el apellido. 
 
 --- Agregamos una nueva columna a dos tablas para hacer los updates más realistas ---------
 
@@ -600,7 +608,8 @@ db2 update db2inst1.department set timestamp = current timestamp;
    *********************************************************************
    ****  COBS910.sqb ******************************************************
    *  Este programa ACCEPTa un código de departamento y devuelve
-   *  el nombre, apellido y teléfono del director, junto al nombre del proyecto (PROJNAME) que tenga el mayor PROJNO de aquellos que corresponden a
+   *  el nombre, apellido y teléfono del director, junto al nombre del proyecto 
+   (PROJNAME) que tenga el mayor PROJNO de aquellos que corresponden a
    * nuestro Departamento.
    *********************************************************************
    *********************************************************************
@@ -613,7 +622,8 @@ db2 update db2inst1.department set timestamp = current timestamp;
 
     Con el director leerá en EMPLOYEE el nombre, apellido y tlf del director.
 
-    Con el código de departamento, accederá a PROJECT y de los proyectos de este departamento recuperará el nombre del que tenga el mayor PROJNO.
+    Con el código de departamento, accederá a PROJECT y de los proyectos de este departamento 
+    recuperará el nombre del que tenga el mayor PROJNO.
 
     Finalmente el programa mostrará todo con displays.
     
@@ -632,7 +642,8 @@ db2 update db2inst1.department set timestamp = current timestamp;
     
     Le pasaremos al programa como parámetro un código de departamento de 3 bytes. 
 
-    El programa hará un cursor sobre la tabla DEPARTMENT con ese número de departamento       de administración y recuperará el código  y el nombre de departamento.
+    El programa hará un cursor sobre la tabla DEPARTMENT con ese número de departamento      
+    de administración y recuperará el código  y el nombre de departamento.
 
     Hará un DISPLAY por cada departamento.
  
